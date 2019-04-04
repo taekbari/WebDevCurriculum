@@ -11,14 +11,30 @@ body {
 .main {
 	background-color: skyblue;
 	/* TODO: 이 곳을 채우세요! */
+	max-height: 100%;
+	padding-left: 200px;
+	padding-right: 300px;
+	overflow: auto;
 }
 
 .left {
 	background-color: pink;
 	/* TODO: 이 곳을 채우세요! */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 200px;
+	height: 100%;
+	overflow: auto;
 }
 
 .right {
 	background-color: greenyellow;
 	/* TODO: 이 곳을 채우세요! */
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 300px;
+	height: 100%;
+	overflow: auto;
 }
