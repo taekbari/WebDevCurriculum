@@ -7,20 +7,170 @@
 	<body>
 		<header>
 			<!-- TODO: 상단의 회색 부분은 어떻게 처리하면 좋을까요? -->
+			<a href=""><img src="/img/logo.png" alt="logo"></a>
+			<div class="search-repository">
+				<a href="#">This repository</a>
+				<!-- repository list 영역 -->
+
+				<input type="text" placeholder="Search">
+			</div>
+			
+			<nav>
+				<ul>
+					<li><a href="#">Pull requests</a></li>
+					<li><a href="#">Issues</a></li>
+					<li><a href="#">Marketplace</a></li>
+					<li><a href="#">Explore</a></li>
+				</ul>
+			</nav>
+
+			<a href="#" class="notification"><img src="/img/icon_notification.png" alt="notification"></a>
+
+			<div class="repository-menu">
+				<a href="#"><img src="/img/icon_repo_add.png" alt="add repository"></a>
+				<!-- repository menu list 영역 -->
+			</div>
+
+			<div class="user-menu">
+				<a href="#"><img src="/img/avatar.png" alt="user avatar"></a>
+				<!-- user menu list 영역 -->
+			</div>
 		</header>
 
 		<section class="main">
 			<header class="main-header">
 				<!-- TODO: 메인의 헤더 부분 -->
+				<h1><a href="#">KnowRe</a>/<a href="#"><strong>WebDevCurriculum</strong></a></h1>
+
+				<div class="watch-menu">
+					<button>Watch</button>
+					<!-- watch menu list 영역 -->
+					<a href="#">19</a>
+				</div>
+
+				<div class="star-menu">
+					<button>Star</button>
+					<a href="#">113</a>
+				</div>
+
+				<div class="fork-menu">
+					<button>Fork</button>
+					<a href="#">106</a>
+				</div>
 			</header>
 
 			<section class="main-detail">
 				<!-- TODO: 메인의 부분 -->
+				<ul class="tab-menu">
+					<li><a href="#">Code</a></li>
+					<li><a href="#">Issues <span class="counter">0</span></a></li>
+					<li><a href="#">Pull requests <span class="counter">1</span></a></a></li>
+					<li><a href="#">Projects <span class="counter">0</span></a></a></li>
+					<li><a href="#">Insights</a></li>
+				</ul>
+
+				<p>KnowRe web development curriculum for noobs</p>
+
+				<div class="repository-info">
+					<ul>
+						<li><a href="#" class="commits"><strong>44</strong> commits</a></li>
+						<li><a href="#" class="branch"><strong>1</strong> branch</a></li>
+						<li><a href="#" class="releases"><strong>0</strong> releases</a></li>
+						<li><a href="#" class="contributors"><strong>2</strong> contributors</a></li>
+						<li><a href="#" class="MIT">MIT</a></li>
+					</ul>
+
+					<button class="language-percent">
+						<span class="html">html</span>
+						<span class="css">css</span>
+						<span class="javascript">javascript</span>
+					</button>
+				</div>
+
+				<div>
+					<div class="left-menu">
+						<div class="branch-list">
+							<button>Branch: <strong>master</strong></button>
+							<!-- branch list 영역 -->
+						</div>
+
+						<a href="#">New pull request</a>
+					</div>
+
+					<div class="right-menu">
+						<a href="#">Create new file</a>
+						<a href="#">Upload files</a>
+						<a href="#">Find file</a>
+
+						<div class="clone-info">
+							<button>Clone or download</button>
+							<!-- clone info 영역 -->
+						</div>
+					</div>
+				</div>
+
+				<table>
+					<thead>
+						<tr>
+							<td colspan="2">
+								<a href="#"><img src="/img/avatar.png" alt="user avatar"></a>
+								<a href="#" class="user-id">KnowRe</a>
+								<a href="#" class="commit-message">Quest 02 added constraint</a>
+							</td>
+							<td class="latest-commit-info">Latest commit <a href="#">8a3080e</a> on 7 Aug 2016</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="path folder"><a href="#"><span>Part 0. git/</span>Quest 00. Hello, git</a></td>
+							<td class="latest-commit-message">Part 2 finished</td>
+							<td class="latest-commit-time">2 years ago</td>
+						</tr>
+						<tr>
+							<td class="path folder"><a href="#">Part 1. HTML & CSS</a></td>
+							<td class="latest-commit-message">Quest 02 added constraint</td>
+							<td class="latest-commit-time">2 years ago</td>
+						</tr>
+						<tr>
+							<td class="path"><a href="#">README.md</a></td>
+							<td class="latest-commit-message">Fix: Removed advertisement</td>
+							<td class="latest-commit-time">2 years ago</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<article>
+					<p>README.md</p>
+					<h1>KnowRe web development curriculum 2018</h1>
+				</article>
 			</section>
 		</section>
 
 		<footer>
 			<!-- TODO: 하단의 Copyright, Terms, Privacy 등은 어떻게 처리하면 좋을까요? -->
+			<small>&copy; 2018 GitHub, Inc.</small>
+			<nav>
+				<ul>
+					<li><a href="">Terms</a></li>
+					<li><a href="">Privacy</a></li>
+					<li><a href="">Security</a></li>
+					<li><a href="">Status</a></li>
+					<li><a href="">Help</a></li>
+				</ul>
+			</nav>
+
+			<a href=""><img src="/img/footer_logo.png" alt="logo"></a>
+
+			<nav>
+				<ul>
+					<li><a href="">Contact GitHub</a></li>
+					<li><a href="">API</a></li>
+					<li><a href="">Training</a></li>
+					<li><a href="">Shop</a></li>
+					<li><a href="">Blog</a></li>
+					<li><a href="">About</a></li>
+				</ul>
+			</nav>
 		</footer>
 	</body>
 </html>
