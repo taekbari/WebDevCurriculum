@@ -32,7 +32,7 @@
 * CSS를 HTML에 적용하는 세 가지 방법의 장단점은 무엇인가요?
   > inline style  
   > `<style>`  
-  > `<link rel="stylesheet" href="...">` : 공통으로 사용하는 스타일을 하나의 파일에서 관리할 수 있다는 장점.  
+  > `<link rel="stylesheet" href="...">`
 * 여러 개의 CSS 규칙이 한 개의 대상에 적용될 때, 어떤 규칙이 우선순위를 가지게 되나요?
   > 1. 속성 값 뒤에 `!important`를 붙인 속성  
   > 2. inline style  
