@@ -1,13 +1,255 @@
 * {
 	/* TODO: 어떤 코드가 들어가야 할까요? */
+	box-sizing: inherit;
 }
 
 html {
 	/* TODO: 어떤 코드가 들어가야 할까요? */
+	box-sizing: border-box;
 }
 
 body {
 	/* TODO: 어떤 코드가 들어가야 할까요? */
+	margin: 0;
+	font-size: 16px;
 }
 
 /* TODO: 또 어떤 코드들이 들어가야 할까요? */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style: none;
+}
+
+h1 {
+	margin: 0;
+}
+
+/* git icon 스타일 */
+.octicon {
+	display: inline-block;
+	vertical-align: text-top;
+	fill: currentColor;
+}
+
+/* header 영역 */
+.header {
+	display: flex;
+	padding: 13px 200px;
+	align-items: center;
+	color: #ddd;
+	background-color: #222;
+}
+
+.header-logo {
+	margin-right: 10px;
+}
+
+.mark-github {
+	color: #fff;
+}
+
+.current-repository,
+.search-input {
+	display: inline-block;
+	padding: 10px;
+	font-size: 16px;
+	color: #ddd;
+	line-height: 20px;
+	background-color: #666;
+	vertical-align: top;
+}
+
+.current-repository {
+	border-radius: 5px 0 0 5px;
+}
+
+.search-input {
+	border: none;
+	border-radius: 0 5px 5px 0;
+}
+
+.search-input::placeholder {
+	color: #aaa;
+}
+
+.header-menu {
+	flex: 1;
+	margin-left: 20px;
+}
+
+.header-menu ul {
+	display: flex;
+}
+
+.header-menu li {
+	margin: 0 5px;
+	font-weight: bold;
+}
+
+.header-menu a {
+	display: block;
+	padding: 10px 5px;
+	font-size: 16px;
+}
+
+.notification,
+.repository-menu,
+.user-menu {
+	margin: 0 5px;
+	text-align: center;
+}
+
+.notification {
+	position: relative;
+}
+
+.notification::after {
+	content: '';
+	position: absolute;
+	top: -6px;
+	right: -4px;
+	width: 12px;
+	height: 12px;
+	border: 3px solid #222;
+	border-radius: 50%;
+	background-color: #5295e0;
+}
+
+.repository-menu a,
+.user-menu a {
+	display: block;
+	position: relative;
+	padding: 0 15px;
+}
+
+.repository-menu a::after,
+.user-menu a::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 0;
+	width: 0;
+	height: 0;
+	border-top: 6px solid #ddd;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	margin-left: 5px;
+	transform: translateY(-50%);
+}
+
+/* main 영역 */
+.main-header {
+	display: flex;
+	padding: 20px 200px;
+	align-items: center;
+	background-color: #f8f8f8;
+}
+
+.main-header .repo {
+	margin-top: 2px;
+	color: #aaa;
+}
+
+.main-header h1 {
+	flex: 1;
+	font-weight: normal;
+	font-size: 18px;
+}
+
+.main-header h1 a {
+	display: inline-block;
+	margin: 0 3px;
+	color: #0366d6;
+}
+
+button {
+	padding: 10px;
+	background-color: #eee;
+}
+
+/* main - article 영역 */
+article.readme {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	margin: 15px 200px 0;
+}
+
+article.readme .file-name {
+	padding: 10px;
+	margin: 0;
+	font-weight: bold;
+	background-color: #f4f4f4;
+}
+
+article.readme .book {
+	margin-right: 5px;
+}
+
+article.readme .contents {
+	padding: 50px;
+}
+
+article.readme h1 {
+	padding-bottom: 20px;
+	border-bottom: 1px solid #eee;
+	font-size: 34px;
+}
+
+/* footer 영역 */
+.footer {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	padding-top: 50px;
+	border-top: 1px solid #ddd;
+	margin: 100px 200px 20px;
+}
+
+.footer small {
+	font-size: 16px;
+	color: #999;
+}
+
+.footer .logo {
+	flex: 1;
+}
+
+.footer nav ul {
+	display: flex;
+}
+
+.footer nav li {
+	margin: 0 5px;
+}
+
+.footer nav li a {
+	display: block;
+	padding: 3px 8px;
+	font-size: 16px;
+	color: #0366d6;
+}
+
+.footer .mark-github {
+	color: #ddd;
+}
+
+.about-menu ul {
+	justify-content: flex-end;
+}
+
+.about-menu li:last-child {
+	margin-right: 0;
+}
+
+.about-menu li:last-child a {
+	padding-right: 0;
+}
