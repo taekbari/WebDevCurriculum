@@ -7,18 +7,6 @@
 	</head>
 	<body>
 		<section class="desktop">
-			<div class="folder">
-				<img src="./svg/icon_folder.svg" alt="folder" />
-				<p class="name">Temp Folder 1</p>
-			</div>
-			<div class="folder">
-				<img src="./svg/icon_folder.svg" alt="folder">
-				<p class="name">Temp Folder 2</p>
-			</div>
-			<div class="icon">
-				<img src="./svg/icon_text.svg" alt="text file" />
-				<p class="name">Text File</p>
-			</div>
 		</section>
 
 		<div class="icon template">
@@ -32,12 +20,13 @@
 		</div>
 
 		<script>
-			const jsFolder = new Folder( '.folder.tempate', 'Javascript' );
-			const cssFolder = new Folder( '.folder.tempate', 'css' );
+			const jsFolder = new Folder( '.folder.template', 'Javascript' );
+			const cssFolder = new Folder( '.folder.template', 'css' );
+			const indexIcon = new Icon( '.icon.template', 'index.html' );
 
 			let myDesktop = new Desktop(
 				/* TODO: myDesktop 인스턴스의 생성자의 변수로 무엇이 들어가야 할까요? */
-				'.desktop', [jsFolder, cssFolder]
+				'.desktop', [jsFolder, cssFolder, indexIcon]
 			);
 		</script>
 	</body>

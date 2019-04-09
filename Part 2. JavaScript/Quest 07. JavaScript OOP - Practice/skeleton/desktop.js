@@ -7,66 +7,145 @@ class Desktop {
 		this.makeIconList();
 	}
 
-	// 전달받은 아이콘 목록으로 객체 및 화면 구성.
 	makeIconList() {
 		const targetElement = document.querySelector( this.templateTarget );
-		console.log( this.iconList[0].htmlElement );
-		// this.iconList.forEach(icon => {
-		// 	targetElement.appendChild( icon.htmlElement );
-		// });
+		this.iconList.forEach(icon => {
+			targetElement.appendChild( icon.htmlElement );
+		});
 	}
 };
 
 class Icon {
-  /* TODO: Icon 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
-  constructor( templateTarget, name, imgInfo ) {}
+	/* TODO: Icon 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
+	constructor( templateTarget, name, imgInfo ) {
+		this._htmlElement = document.querySelector( templateTarget ).cloneNode( true );
+		this._name = name || 'Test Text';
+		this._imgInfo = imgInfo || { src: './svg/icon_text.svg', width: 80, height: 80 };
 
-  set name( name ) {}
-  get name() {}
-  set imgInfo( imgInfo ) {}
-  get imgInfo() {}
+		this.initialize();
+	}
 
-  initialize() {}
-  setIconMoveEvent() {}
+	set name( name ) {
+		this._name = name;
+	}
+
+	get name() {
+		return this._name;
+	}
+
+	set imgInfo( imgInfo ) {
+		this._imgInfo = imgInfo;
+	}
+
+	get imgInfo() {
+		return this._imgInfo;
+	}
+
+	get htmlElement() {
+		return this._htmlElement;
+	}
+
+	initialize() {
+		if ( !this._htmlElement ) {
+			return;
+		}
+
+		this._htmlElement.querySelector( '.name' ).innerHTML = this._name;
+		this._htmlElement.classList.remove( 'template' );
+
+		this.setIconMoveEvent();
+	}
+
+	setIconMoveEvent() {
+		this._htmlElement.addEventListener('mousedown', ( event ) => {
+			const clickedOffsetX = event.offsetX;
+			const clickedOffsetY = event.offsetY;
+
+			document.onmousemove = ( event ) => {
+				this._htmlElement.style.position = 'absolute';
+				this._htmlElement.style.top = `${event.clientY - clickedOffsetY}px`;
+				this._htmlElement.style.left = `${event.clientX - clickedOffsetX}px`;
+			};
+			
+			document.onmouseup = () => {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			};
+			
+			event.preventDefault();
+		});
+	}
 };
 
 class Folder {
 	/* TODO: Folder 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
 	constructor( templateTarget, name, imgInfo, iconList ) {
-		this.htmlElement = document.querySelector( templateTarget );
-		this.name = name || 'Test Folder';
-		this.imgInfo = imgInfo || { src: './svg/icon_folder.svg', width: 80, height: 80 };
+		this._htmlElement = document.querySelector( templateTarget ).cloneNode( true );
+		this._name = name || 'Test Folder';
+		this._imgInfo = imgInfo || { src: './svg/icon_folder.svg', width: 80, height: 80 };
 		this.iconList = iconList || [];
 
 		this.initialize();
 	}
 
-	set name( name ) {}
-	get name() {
-		return this.name;
-	}
-	set imgInfo( imgInfo ) {}
-	get imgInfo() {
-		return this.imgInfo;
+	set name( name ) {
+		this._name = name;
 	}
 
-	set htmlElement( htmlElement ) {}
+	get name() {
+		return this._name;
+	}
+
+	set imgInfo( imgInfo ) {
+		this._imgInfo = imgInfo;
+	}
+
+	get imgInfo() {
+		return this._imgInfo;
+	}
+
 	get htmlElement() {
-		return this.htmlElement;
+		return this._htmlElement;
 	}
 
 	initialize() {
-		// this.setFolderMoveEvent();
+		if ( !this._htmlElement ) {
+			return;
+		}
+
+		this._htmlElement.querySelector( '.name' ).innerHTML = this._name;
+		this._htmlElement.classList.remove( 'template' );
+
+		this.setFolderMoveEvent();
+		this.setWindowOpenEvent();
+	}
+
+	updateHTMLElement() {
+
 	}
 
 	setFolderMoveEvent() {
-		this.htmlElement.addEventListener('click', () => {
-			console.log( `${this.name} click event` );
+		this._htmlElement.addEventListener('mousedown', ( event ) => {
+			const clickedOffsetX = event.offsetX;
+			const clickedOffsetY = event.offsetY;
+
+			document.onmousemove = ( event ) => {
+				this._htmlElement.style.position = 'absolute';
+				this._htmlElement.style.top = `${event.clientY - clickedOffsetY}px`;
+				this._htmlElement.style.left = `${event.clientX - clickedOffsetX}px`;
+			};
+			
+			document.onmouseup = () => {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			};
+			
+			event.preventDefault();
 		});
 	}
 
 	setWindowOpenEvent() {
-		this.htmlElement.addEventListener('dblclick', () => {
+		this._htmlElement.addEventListener('dblclick', () => {
 			console.log( `${this.name} dblclick event` );
 		});
 	}
