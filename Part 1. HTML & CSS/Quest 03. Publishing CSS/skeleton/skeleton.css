@@ -29,8 +29,13 @@ li {
 	list-style: none;
 }
 
-h1 {
+h1,
+p {
 	margin: 0;
+}
+
+table caption {
+	display: none;
 }
 
 /* git icon 스타일 */
@@ -38,6 +43,36 @@ h1 {
 	display: inline-block;
 	vertical-align: text-top;
 	fill: currentColor;
+}
+
+.select-list {
+	position: relative;
+}
+
+/* 공통 스타일 */
+button,
+.button {
+	display: inline-block;
+	padding: 5px 10px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 12px;
+	background-color: #f2f2f2;
+}
+
+.select-list::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	width: 0;
+	height: 0;
+	border-top: 5px solid currentColor;
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	margin-left: 5px;
+	transform: translateY(-50%);
 }
 
 /* header 영역 */
@@ -149,8 +184,10 @@ h1 {
 /* main 영역 */
 .main-header {
 	display: flex;
-	padding: 20px 200px;
+	flex-wrap: wrap;
 	align-items: center;
+	padding: 20px 200px 0;
+	border-bottom: 1px solid #ccc;
 	background-color: #f8f8f8;
 }
 
@@ -171,16 +208,263 @@ h1 {
 	color: #0366d6;
 }
 
-button {
-	padding: 10px;
-	background-color: #eee;
+.button-link-group {
+	display: flex;
+	border: 1px solid #ccc;
+	border-radius: 3px;
 }
 
+.button-link-group button {
+	border: none;
+	border-right: 1px solid #ccc;
+	border-radius: 0;
+}
+
+.button-link-group a {
+	padding: 5px 10px;
+	font-size: 14px;
+}
+
+.watch-button {
+	padding-right: 25px;
+}
+
+.star-menu,
+.fork-menu {
+	margin-left: 15px;
+}
+
+.tab-menu {
+	display: flex;
+	flex-basis: 100%;
+	position: relative;
+	top: 1px;
+	margin-top: 20px;
+}
+
+.tab-menu a {
+	display: block;
+	padding: 10px 15px;
+	border-top: 3px solid transparent;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	border-bottom: 1px solid transparent;
+	color: #888;
+}
+
+.tab-menu .selected a {
+	border-color: #e34c26 #ccc #fff #ccc;
+	color: #000;
+	background-color: #fff;
+}
+
+.tab-menu .counter {
+	display: inline-block;
+	height: 18px;
+	min-width: 18px;
+	padding: 0px 5px;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 12px;
+	color: #444;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: top;
+	background-color: #eee;	
+}
+
+/* main - detail 영역 */
+.main-detail {
+	margin: 0 200px;
+}
+
+.repository-description {
+	margin: 20px 0;
+	font-size: 18px;
+}
+
+.repository-info {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	color: #888;
+}
+
+.repository-info ul {
+	display: flex;
+	text-align: center;
+}
+
+.repository-info li {
+	flex: 1;
+}
+
+.repository-info li a {
+	display: block;
+	padding: 15px 0;
+}
+
+.repository-info strong {
+	color: #000;
+}
+
+.language-percent {
+	display: flex;
+	width: 100%;
+	padding: 0;
+	border: none;
+	cursor: pointer;
+	background: none;
+}
+
+.language-percent span {
+	height: 8px;
+	text-indent: -9999px;
+}
+
+.language-percent .html {
+	flex-basis: 70%;
+	background-color: #e34c26;
+}
+
+.language-percent .css,
+.language-percent .javascript {
+	flex-basis: 15%;
+}
+
+.language-percent .css {
+	background-color: #f1e05a;
+}
+
+.language-percent .javascript {
+	background-color: #563d7c;
+}
+
+/* main - file menu 영역 */
+.file-menu {
+	display: flex;
+	margin: 20px 0 12px;
+}
+
+.left-menu,
+.right-menu {
+	display: flex;
+	flex: 1;
+}
+
+.branch-list {
+	margin-right: 8px;
+}
+
+.branch-list-button {
+	padding-right: 25px;
+}
+
+.right-menu {
+	justify-content: flex-end;
+}
+
+.group-button {
+	display: flex;
+}
+
+.group-button .button {
+	border-left: none;
+	border-radius: 0;
+}
+
+.group-button .button:first-child {
+	border-left: 1px solid #ccc;
+	border-radius: 3px 0 0 3px;
+}
+
+.group-button .button:last-child {
+	border-radius: 0 3px 3px 0;
+}
+
+.clone-info {
+	margin-left: 8px;
+}
+
+.clone-button {
+	padding-right: 25px;
+	color: #fff;
+	background-color: #28a745;
+}
+/* main - file list 영역 */
+.file-list {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.file-list thead tr {
+	height: 50px;
+	border: 1px solid #c8e1ff;
+	border-radius: 3px 3px 0 0;
+	font-size: 14px;
+	color: #888;
+	background-color: #f1f8ff;
+}
+
+.commit-user-info {
+	padding: 0 10px;
+}
+
+.commit-user-info > a {
+	display: inline-block;
+}
+
+.commit-user-avatar img {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+.commit-user-id {
+	margin-left: 5px;
+	font-weight: bold;
+	color: #000;
+}
+
+.commit-message {
+	margin-left: 5px;
+}
+
+.latest-commit-info {
+	padding: 0 10px;
+	text-align: right;
+}
+
+.file-list tbody tr {
+	height: 40px;
+	border: 1px solid #eee;
+	border-top: none;
+}
+
+.file-list tbody tr:hover {
+	background-color: #f7f7f7;
+}
+
+.file-list tbody tr td {
+	padding: 0 10px;
+	color: #888;
+}
+
+.file-list .path {
+	color: #0366d6;
+}
+
+.file-list .path span {
+	color: #888;
+}
+
+.latest-commit-time {
+	text-align: right;
+}
 /* main - article 영역 */
 article.readme {
 	border: 1px solid #ddd;
 	border-radius: 3px;
-	margin: 15px 200px 0;
+	margin-top: 15px;
 }
 
 article.readme .file-name {
