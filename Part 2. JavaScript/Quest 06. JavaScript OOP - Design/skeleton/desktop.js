@@ -8,42 +8,41 @@ class Desktop {
 
 class Icon {
   /* TODO: Icon 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
-  constructor( name, imgSRC, target ) {}
+  constructor( templateTarget, name, imgInfo ) {}
 
-  initialize() {}
   set name( name ) {}
   get name() {}
-  set imgSRC( imgSRC ) {}
-  get imgSRC() {}
-  set target( target ) {}
-  get target() {}
-  setMoveEvent() {}
+  set imgInfo( imgInfo ) {}
+  get imgInfo() {}
+
+  initialize() {}
+  setIconMoveEvent() {}
 };
 
 class Folder {
   /* TODO: Folder 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
-  constructor( name, imgSRC, iconList, target ) {}
+  constructor( templateTarget, name, imgInfo, iconList ) {}
 
-  initialize() {}
   set name( name ) {}
   get name() {}
-  set imgSRC( imgSRC ) {}
-  get imgSRC() {}
-  set target( target ) {}
-  get target() {}
-  setMoveEvent() {}
-  setOpenWindow() {}
+  set imgInfo( imgInfo ) {}
+  get imgInfo() {}
+
+  initialize() {}
+  setFolderMoveEvent() {}
+  setWindowOpenEvent() {}
 };
 
 class Window {
   /* TODO: Window 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
   constructor( folderName, iconList ) {}
 
-  initialize() {}
   set width( width ) {}
   get width() {}
   set height( height ) {}
   get height() {}
-  setMoveEvent() {}
-  setCloseWindow() {}
+
+  initialize() {}
+  setWindowMoveEvent() {}
+  setWindowCloseEvent() {}
 };
