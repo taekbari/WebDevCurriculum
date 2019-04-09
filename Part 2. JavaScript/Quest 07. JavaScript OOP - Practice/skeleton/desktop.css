@@ -1,1 +1,37 @@
 /* TODO: 자유롭게 바탕화면 시스템의 CSS를 만들어 보세요! */
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.template {
+    display: none;
+}
+
+.desktop {
+    display: flex;
+    padding: 30px;
+}
+
+.icon,
+.folder {
+    width: 80px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.icon img,
+.folder img {
+    width: 100%;
+}
