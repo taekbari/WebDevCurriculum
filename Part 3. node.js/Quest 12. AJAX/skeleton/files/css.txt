@@ -1,0 +1,1 @@
+CSS는 Cascading Style Sheet를 말합니다.

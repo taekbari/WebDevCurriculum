@@ -9,6 +9,10 @@
 		<!-- TODO: 이 곳을 채워 클라이언트를 만들어 보세요 -->
 		<button class="get-request-button">Get Request</button>
 		<button class="post-request-button">Post Request</button>
+		<button class="list-request-button">File List Request</button>
+
+		<div class="file-list">
+		</div>
 		<script>
 			let notepad = new Notepad();
 			const httpRequest = new XMLHttpRequest();
@@ -18,6 +22,22 @@
 					console.log( `Hello, ${httpRequest.responseText}` );
 				}
 			};
+
+			document.querySelector( '.list-request-button' ).addEventListener('click', () => {	
+				httpRequest.onreadystatechange = () => {
+					if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
+						const fileList = JSON.parse( httpRequest.responseText );
+						let listHTML = '';
+						fileList.list.forEach((file) => {
+							listHTML = listHTML + `<p>${file}</p>`;
+						});
+
+						document.querySelector( '.file-list' ).innerHTML = listHTML;
+					}
+				};
+				httpRequest.open( 'GET', '/files');
+				httpRequest.send();
+			});
 
 			document.querySelector( '.get-request-button' ).addEventListener('click', () => {	
 				httpRequest.open( 'GET', '/foo?bar=get test');
