@@ -7,8 +7,28 @@
 	</head>
 	<body>
 		<!-- TODO: 이 곳을 채워 클라이언트를 만들어 보세요 -->
+		<button class="get-request-button">Get Request</button>
+		<button class="post-request-button">Post Request</button>
 		<script>
 			let notepad = new Notepad();
+			const httpRequest = new XMLHttpRequest();
+
+			httpRequest.onreadystatechange = () => {
+				if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
+					console.log( `Hello, ${httpRequest.responseText}` );
+				}
+			};
+
+			document.querySelector( '.get-request-button' ).addEventListener('click', () => {	
+				httpRequest.open( 'GET', '/foo?bar=get test');
+				httpRequest.send();
+			});
+
+			document.querySelector( '.post-request-button' ).addEventListener('click', () => {
+				httpRequest.open( 'POST', '/foo' );
+				httpRequest.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+				httpRequest.send( 'bar=post test' );
+			});
 		</script>
 	</body>
 </html>
