@@ -31,7 +31,47 @@ p {
     margin-bottom: 20px;
 }
 
+.folder {
+    cursor: pointer;
+}
+
 .icon img,
 .folder img {
     width: 100%;
+}
+
+.window {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 500px;
+    height: 300px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.window .folder-name,
+.window .icon-list {
+    padding: 20px;
+}
+
+.window .folder-name {
+    border-bottom: 1px solid #ccc;
+}
+
+.window .icon-list {
+    display: flex;
+}
+
+.window-close-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
 }

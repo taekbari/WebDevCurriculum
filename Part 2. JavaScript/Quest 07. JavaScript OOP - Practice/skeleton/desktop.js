@@ -84,6 +84,7 @@ class Folder {
 		this._name = name || 'Test Folder';
 		this._imgInfo = imgInfo || { src: './svg/icon_folder.svg', width: 80, height: 80 };
 		this.iconList = iconList || [];
+		this.window = new Window( name, iconList );
 
 		this.initialize();
 	}
@@ -146,21 +147,75 @@ class Folder {
 
 	setWindowOpenEvent() {
 		this._htmlElement.addEventListener('dblclick', () => {
-			console.log( `${this.name} dblclick event` );
+			this.window.openWindow();
 		});
 	}
 };
 
 class Window {
-  /* TODO: Window 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
-  constructor( folderName, iconList ) {}
+	/* TODO: Window 클래스는 어떤 멤버함수와 멤버변수를 가져야 할까요? */
+	constructor( folderName, iconList ) {
+		this._htmlElement = document.querySelector( '.window.template' ).cloneNode( true );
+		this.folderName = folderName ||'New Window';
+		this.iconList = iconList || [];
 
-  set width( width ) {}
-  get width() {}
-  set height( height ) {}
-  get height() {}
+		this.initialize();
+	}
 
-  initialize() {}
-  setWindowMoveEvent() {}
-  setWindowCloseEvent() {}
+	set width( width ) {}
+	get width() {}
+	set height( height ) {}
+	get height() {}
+
+	initialize() {
+		if ( !this._htmlElement ) {
+			return;
+		}
+
+		this._htmlElement.querySelector( '.folder-name' ).innerHTML = this.folderName;
+
+		if ( this.iconList.length ) {
+			this.makeIconList();
+		}
+		this.setWindowMoveEvent();
+		this.setWindowCloseEvent();
+	}
+
+	makeIconList() {
+		const targetElement = this._htmlElement.querySelector( '.icon-list' );
+		this.iconList.forEach(icon => {
+			targetElement.appendChild( icon.htmlElement );
+		});
+	}
+
+	openWindow() {
+		this._htmlElement.classList.remove( 'template' );
+		document.body.appendChild( this._htmlElement );
+	}
+
+	setWindowMoveEvent() {
+		this._htmlElement.addEventListener('mousedown', ( event ) => {
+			const clickedOffsetX = event.offsetX;
+			const clickedOffsetY = event.offsetY;
+
+			document.onmousemove = ( event ) => {
+				this._htmlElement.style.position = 'absolute';
+				this._htmlElement.style.top = `${event.clientY - clickedOffsetY}px`;
+				this._htmlElement.style.left = `${event.clientX - clickedOffsetX}px`;
+			};
+			
+			document.onmouseup = () => {
+				document.onmousemove = null;
+				document.onmouseup = null;
+			};
+			
+			event.preventDefault();
+		});
+	}
+
+	setWindowCloseEvent() {
+		this._htmlElement.querySelector( '.window-close-button' ).addEventListener('click', () => {
+			document.body.removeChild( this._htmlElement );
+		});
+	}
 };

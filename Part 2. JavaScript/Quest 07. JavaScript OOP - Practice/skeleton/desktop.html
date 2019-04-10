@@ -9,18 +9,25 @@
 		<section class="desktop">
 		</section>
 
-		<div class="icon template">
-			<img src="./svg/icon_text.svg" alt="text file" />
+		<a class="icon template">
+			<img src="./svg/icon_text.svg" alt="icon" />
 			<p class="name"></p>
-		</div>
+		</a>
 
-		<div class="folder template">
+		<a class="folder template">
 			<img src="./svg/icon_folder.svg" alt="folder">
 			<p class="name"></p>
+		</a>
+
+		<div class="window template">
+			<p class="folder-name"></p>
+			<section class="icon-list"></section>
+			<button class="window-close-button">X</button>
 		</div>
 
 		<script>
-			const jsFolder = new Folder( '.folder.template', 'Javascript' );
+			const jsFile = new Icon( '.icon.template', 'index.js' );
+			const jsFolder = new Folder( '.folder.template', 'Javascript', null, [jsFile] );
 			const cssFolder = new Folder( '.folder.template', 'css' );
 			const indexIcon = new Icon( '.icon.template', 'index.html' );
 
