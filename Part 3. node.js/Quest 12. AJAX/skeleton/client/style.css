@@ -1,3 +1,125 @@
 * {
 	/* TODO: 필요한 CSS를 채워넣어 보세요! */
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+body,
+h1 {
+	margin: 0;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	color: currentColor;
+	text-decoration: none;
+}
+
+a:active {
+	color: currentColor;
+}
+
+button {
+	padding: 5px 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-size: 14px;
+	background-color: #fff;
+}
+
+.display-none {
+	display: none;
+}
+
+.header {
+	padding: 50px;
+}
+
+.menu-button {
+	display: flex;
+	margin-top: 20px;
+}
+
+.new-file-button,
+.file-list-button {
+	height: 50px;
+}
+
+.file-list-button {
+	margin-left: 10px;
+}
+
+.notepad .contents-section {
+	padding: 0 50px 50px;
+}
+
+.file-tab-menu {
+	display: flex;
+}
+
+.file-tab {
+	border: 1px solid #aaa;
+	border-radius: 5px 5px 0 0;
+}
+
+.file-tab:first-child {
+	margin-left: 0;
+}
+
+.file-tab a {
+	display: block;
+	padding: 10px 15px;
+	color: #aaa;
+}
+
+.file-tab.selected {
+	border-color: #000 #000 transparent #000;
+}
+
+.file-tab.selected a {
+	color: #000;
+}
+
+.file-contents {
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+	padding: 20px;
+	border: 1px solid #aaa;
+	border-radius: 0 5px 5px 5px;
+	margin-top: -1px;
+}
+
+.input-name {
+	height: 30px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.input-contents {
+	border-color: #ccc;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+.file-contents-footer {
+	text-align: right;
+}
+
+.complete-button {
+	display: inline-block;
+	width: 100px;
+	padding: 10px 15px;
+	margin-top: 20px;
 }

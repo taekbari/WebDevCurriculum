@@ -7,12 +7,30 @@
 	</head>
 	<body>
 		<!-- TODO: 이 곳을 채워 클라이언트를 만들어 보세요 -->
-		<button class="get-request-button">Get Request</button>
-		<button class="post-request-button">Post Request</button>
-		<button class="list-request-button">File List Request</button>
-
-		<div class="file-list">
-		</div>
+		<section class="notepad">
+			<header class="header">
+				<h1>Notepad</h1>
+				<div class="menu-button">
+					<button class="new-file-button">New File</button>
+					<button class="file-list-button">Get File List</button>
+				</div>
+			</header>
+			<section class="contents-section">
+				<ul class="file-tab-menu">
+					<li class="file-tab selected"><a href="#">New File 1</a></li>
+				</ul>
+				
+				<section class="file-contents">
+					<input class="input-name" type="text" name="file-name" />
+					<textarea class="input-contents" name="input-contents" cols="30" rows="20"></textarea>
+	
+					<footer class="file-contents-footer">
+						<button class="complete-button">Create</button>
+					</footer>
+				</section>
+			</section>
+		</section>
+		
 		<script>
 			let notepad = new Notepad();
 			const httpRequest = new XMLHttpRequest();
@@ -28,11 +46,27 @@
 					if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
 						const fileList = JSON.parse( httpRequest.responseText );
 						let listHTML = '';
+						let fileNameElements = null;
+
 						fileList.list.forEach((file) => {
-							listHTML = listHTML + `<p>${file}</p>`;
+							listHTML = listHTML + `<p class="file-name">${file}</p>`;
 						});
 
 						document.querySelector( '.file-list' ).innerHTML = listHTML;
+
+						fileNameElements = document.querySelectorAll( '.file-list .file-name');
+						fileNameElements.forEach(( file ) => {
+							file.addEventListener('click', ( event ) => {
+								httpRequest.onreadystatechange = () => {
+									if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
+										console.log( 'response : ', httpRequest.responseText );
+									}
+								};
+								
+								httpRequest.open( 'GET', `/files/${event.currentTarget.innerHTML}` );
+								httpRequest.send();
+							});
+						});
 					}
 				};
 				httpRequest.open( 'GET', '/files');
