@@ -42,7 +42,18 @@ app.post('/files', (req, res) => {
 			return;
 		}
 
-		res.send( 'upload complete' );
+		res.json( {name: req.body.name, contents: req.body.contents} );
+	});
+});
+
+app.put('/files', (req, res) => {
+	fileSystem.writeFile( `${FILE_PATH}/${req.body.name}`, req.body.contents, 'utf-8', (error) => {
+		if ( error ) {
+			res.status( 500 ).send( {status: 500, message: 'internal error', type: 'internal'} );
+			return;
+		}
+
+		res.json( {name: req.body.name, contents: req.body.contents} );
 	});
 });
 

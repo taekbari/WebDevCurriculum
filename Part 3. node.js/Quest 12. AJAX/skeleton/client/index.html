@@ -17,7 +17,6 @@
 			</header>
 			<section class="contents-section">
 				<ul class="file-tab-menu">
-					<li class="file-tab selected"><a href="#">New File 1</a></li>
 				</ul>
 				
 				<section class="file-contents">
@@ -25,64 +24,32 @@
 					<textarea class="input-contents" name="input-contents" cols="30" rows="20"></textarea>
 	
 					<footer class="file-contents-footer">
-						<button class="complete-button">Create</button>
+						<button class="complete-button">Save</button>
 					</footer>
 				</section>
 			</section>
 		</section>
 		
 		<script>
-			let notepad = new Notepad();
-			const httpRequest = new XMLHttpRequest();
+			let notepad = new Notepad( '.notepad' );
+			// const httpRequest = new XMLHttpRequest();
 
-			httpRequest.onreadystatechange = () => {
-				if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
-					console.log( `Hello, ${httpRequest.responseText}` );
-				}
-			};
+			// httpRequest.onreadystatechange = () => {
+			// 	if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
+			// 		console.log( `Hello, ${httpRequest.responseText}` );
+			// 	}
+			// };
 
-			document.querySelector( '.list-request-button' ).addEventListener('click', () => {	
-				httpRequest.onreadystatechange = () => {
-					if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
-						const fileList = JSON.parse( httpRequest.responseText );
-						let listHTML = '';
-						let fileNameElements = null;
+			// document.querySelector( '.get-request-button' ).addEventListener('click', () => {	
+			// 	httpRequest.open( 'GET', '/foo?bar=get test');
+			// 	httpRequest.send();
+			// });
 
-						fileList.list.forEach((file) => {
-							listHTML = listHTML + `<p class="file-name">${file}</p>`;
-						});
-
-						document.querySelector( '.file-list' ).innerHTML = listHTML;
-
-						fileNameElements = document.querySelectorAll( '.file-list .file-name');
-						fileNameElements.forEach(( file ) => {
-							file.addEventListener('click', ( event ) => {
-								httpRequest.onreadystatechange = () => {
-									if ( httpRequest.readyState === XMLHttpRequest.DONE ) {
-										console.log( 'response : ', httpRequest.responseText );
-									}
-								};
-								
-								httpRequest.open( 'GET', `/files/${event.currentTarget.innerHTML}` );
-								httpRequest.send();
-							});
-						});
-					}
-				};
-				httpRequest.open( 'GET', '/files');
-				httpRequest.send();
-			});
-
-			document.querySelector( '.get-request-button' ).addEventListener('click', () => {	
-				httpRequest.open( 'GET', '/foo?bar=get test');
-				httpRequest.send();
-			});
-
-			document.querySelector( '.post-request-button' ).addEventListener('click', () => {
-				httpRequest.open( 'POST', '/foo' );
-				httpRequest.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-				httpRequest.send( 'bar=post test' );
-			});
+			// document.querySelector( '.post-request-button' ).addEventListener('click', () => {
+			// 	httpRequest.open( 'POST', '/foo' );
+			// 	httpRequest.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+			// 	httpRequest.send( 'bar=post test' );
+			// });
 		</script>
 	</body>
 </html>
